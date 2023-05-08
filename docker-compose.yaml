@@ -1,0 +1,25 @@
+version: "3.9"
+
+services:
+  db:
+    image: mysql:8.0.25
+    restart: always
+    environment:
+      MYSQL_DATABASE: db_login
+      MYSQL_USER: user_login
+      MYSQL_PASSWORD: password_login
+      MYSQL_ROOT_PASSWORD: root_password
+    volumes:
+      - db_data:/var/lib/mysql
+      - ./src/users.sql:/docker-entrypoint-initdb.d/users.sql
+    ports:
+      - "3306:3306"
+  php:
+    build: .
+    ports:
+      - "80:80"
+    depends_on:
+      - db
+
+volumes:
+  db_data:
