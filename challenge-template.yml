@@ -5,8 +5,8 @@
 name: "web_back_level_2"
 author: "Mathieu"
 category: Web_back
-description: A connection Form
-value: 20
+description: A connection Form find the correct login to connect
+value: 150
 type: medium
 
 # The extra field provides additional fields for data during the install/sync commands/
